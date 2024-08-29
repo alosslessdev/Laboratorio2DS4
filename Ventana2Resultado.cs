@@ -68,6 +68,9 @@ namespace FranciscoHerrera_Lab1
             this.Hide();
         }
 
+        private void etiquetaCambiaSeguroSocial_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
