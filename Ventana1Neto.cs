@@ -26,48 +26,36 @@ namespace FranciscoHerrera_Lab1
             try
             {
                 decimal salarioBruto = decimal.Parse(txtSalarioBruto.Text);
-                salarioBruto = (salarioBruto * 13);
+                decimal salarioBrutoAnual;
+                salarioBrutoAnual = (salarioBruto * 13);
 
                 decimal calcularISR;
-                calcularISR = salarioBruto;
+                calcularISR = salarioBrutoAnual;
 
 
 
-                if (calcularISR <= Convert.ToDecimal(11000)) {
+                if (calcularISR <= Convert.ToDecimal(11000))
+                {
                     calcularISR = calcularISR;
                 }
-
-                Int32 compararDecimales;
-                compararDecimales = (Decimal.Compare(calcularISR, 11000.00m));
-
-
-                else if ( 
-
-                        (Decimal.Compare(
-                        calcularISR, Convert.ToDecimal(11000)
-                        ) < 0
-                        
-                    &&
-                        (Decimal.Compare(
-                        calcularISR, Convert.ToDecimal(50000)
-                        ) > 0 
-
-                        ))) {  
-                    calcularISR = (((calcularISR - Convert.ToDecimal(11000)) * Convert.ToDecimal(0.15))/13);
-                } 
-                else {
+                else if (calcularISR > Convert.ToDecimal(11000) && calcularISR < Convert.ToDecimal(50000))
+                {
+                    calcularISR = (((calcularISR - Convert.ToDecimal(11000)) * Convert.ToDecimal(0.15)) / 13);
+                }
+                else
+                {
                     calcularISR = ((calcularISR - Convert.ToDecimal(50000)) * Convert.ToDecimal(0.25));
                     calcularISR = ((calcularISR + Convert.ToDecimal(5850)) / 13);
 
                 }
 
-                
+                calcularISR = decimal.Round(calcularISR, 2);
 
                 decimal pagoSeguroSocial = decimal.Round((salarioBruto * Convert.ToDecimal(0.0975)), 2);
 
                 decimal pagoSeguroEducativo = decimal.Round((salarioBruto * Convert.ToDecimal(0.0125)), 2);
 
-                decimal salarioNeto = decimal.Round((salarioBruto - pagoSeguroSocial - pagoSeguroEducativo), 2);
+                decimal salarioNeto = decimal.Round((salarioBruto - pagoSeguroSocial - pagoSeguroEducativo - calcularISR), 2);
 
                 VentanaNeto ventana2Resultado = new VentanaNeto(salarioNeto, pagoSeguroSocial, pagoSeguroEducativo, calcularISR);
                 ventana2Resultado.Show();
