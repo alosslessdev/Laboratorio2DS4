@@ -27,15 +27,19 @@ namespace FranciscoHerrera_Lab1
             {
                 decimal salarioBruto = decimal.Parse(txtSalarioBruto.Text);
                 salarioBruto = (salarioBruto * 13);
+
                 decimal calcularISR
                 calcularISR = salarioBruto;
-                if (calcularISR <= 11000) {
+
+                if (calcularISR <= Convert.ToDecimal(11000)) {
                     calcularISR = calcularISR;
-                } else if (calcularISR > 11000 && < 50000) {  
-                    calcularISR = (((calcularISR - 11000) * 0.15)/13);
-                } else {
-                    salarioBruto = ((calcularISR - 50000) * 0.25);
-                    salarioBruto = ((calcularISR + 5850) / 13);
+                } 
+                else if (calcularISR > Convert.ToDecimal(11000) && < Convert.ToDecimal(50000)) {  
+                    calcularISR = (((calcularISR - Convert.ToDecimal(11000)) * Convert.ToDecimal(0.15))/13);
+                } 
+                else {
+                    calcularISR = ((calcularISR - Convert.ToDecimal(50000)) * Convert.ToDecimal(0.25));
+                    calcularISR = ((calcularISR + Convert.ToDecimal(5850)) / 13);
 
                 }
 
@@ -47,7 +51,7 @@ namespace FranciscoHerrera_Lab1
 
                 decimal salarioNeto = decimal.Round((salarioBruto - pagoSeguroSocial - pagoSeguroEducativo), 2);
 
-                VentanaNeto ventana2Resultado = new VentanaNeto(txtNombreEmpleado.Text, txtCedula.Text, salarioNeto, pagoSeguroSocial, pagoSeguroEducativo);
+                VentanaNeto ventana2Resultado = new VentanaNeto(salarioNeto, pagoSeguroSocial, pagoSeguroEducativo, calcularISR);
                 ventana2Resultado.Show();
                 this.Hide();
             }
