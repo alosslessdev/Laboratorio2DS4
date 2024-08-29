@@ -18,10 +18,10 @@ namespace FranciscoHerrera_Lab1
         private decimal valorSalarioNetoLocal;
         private decimal valorSeguroSocialLocal;
         private decimal valorSeguroEducativoLocal;
-        private decimal valorISRLocal;
+        private string valorISRLocal;
 
         public VentanaNeto(decimal entradaSalarioNeto, 
-            decimal entradaSeguroSocial, decimal entradaSeguroEducativo, decimal entradaISR)
+            decimal entradaSeguroSocial, decimal entradaSeguroEducativo, string entradaISR)
         {
             InitializeComponent();
              valorSalarioNetoLocal = entradaSalarioNeto;
@@ -38,7 +38,7 @@ namespace FranciscoHerrera_Lab1
             etiquetaCambiaSalarioNeto.Text = valorSalarioNetoLocal.ToString();
             etiquetaCambiaSeguroEducativo.Text = valorSeguroSocialLocal.ToString();
             etiquetaCambiaSeguroSocial.Text = valorSeguroEducativoLocal.ToString();
-            etiquetaCambiaISR.Text = valorISRLocal.ToString();
+            etiquetaCambiaISR.Text = valorISRLocal;
             
         }
 

@@ -37,6 +37,7 @@ namespace FranciscoHerrera_Lab1
                 if (calcularISR <= Convert.ToDecimal(11000))
                 {
                     calcularISR = calcularISR;
+
                 }
                 else if (calcularISR > Convert.ToDecimal(11000) && calcularISR < Convert.ToDecimal(50000))
                 {
@@ -57,12 +58,12 @@ namespace FranciscoHerrera_Lab1
 
                 decimal salarioNeto = decimal.Round((salarioBruto - pagoSeguroSocial - pagoSeguroEducativo - calcularISR), 2);
 
-                VentanaNeto ventana2Resultado = new VentanaNeto(salarioNeto, pagoSeguroSocial, pagoSeguroEducativo, calcularISR);
+                VentanaNeto ventana2Resultado = new VentanaNeto(salarioNeto, pagoSeguroSocial, pagoSeguroEducativo, calcularISR.ToString());
                 ventana2Resultado.Show();
                 this.Hide();
             }
             catch {
-                VentanaNeto ventana2Resultado = new VentanaNeto(0.0m, 0.0m, 0.0m, 0.0m);
+                VentanaNeto ventana2Resultado = new VentanaNeto(0.0m, 0.0m, 0.0m, "No paga ISR");
                 ventana2Resultado.Show();
                 this.Hide();
             }
