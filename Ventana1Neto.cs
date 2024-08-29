@@ -28,13 +28,31 @@ namespace FranciscoHerrera_Lab1
                 decimal salarioBruto = decimal.Parse(txtSalarioBruto.Text);
                 salarioBruto = (salarioBruto * 13);
 
-                decimal calcularISR
+                decimal calcularISR;
                 calcularISR = salarioBruto;
+
+
 
                 if (calcularISR <= Convert.ToDecimal(11000)) {
                     calcularISR = calcularISR;
-                } 
-                else if (calcularISR > Convert.ToDecimal(11000) && < Convert.ToDecimal(50000)) {  
+                }
+
+                Int32 compararDecimales;
+                compararDecimales = (Decimal.Compare(calcularISR, 11000.00m));
+
+
+                else if ( 
+
+                        (Decimal.Compare(
+                        calcularISR, Convert.ToDecimal(11000)
+                        ) < 0
+                        
+                    &&
+                        (Decimal.Compare(
+                        calcularISR, Convert.ToDecimal(50000)
+                        ) > 0 
+
+                        ))) {  
                     calcularISR = (((calcularISR - Convert.ToDecimal(11000)) * Convert.ToDecimal(0.15))/13);
                 } 
                 else {
@@ -56,7 +74,7 @@ namespace FranciscoHerrera_Lab1
                 this.Hide();
             }
             catch {
-                VentanaNeto ventana2Resultado = new VentanaNeto("Vacio", "Vacio", 0.0m, 0.0m, 0.0m);
+                VentanaNeto ventana2Resultado = new VentanaNeto(0.0m, 0.0m, 0.0m, 0.0m);
                 ventana2Resultado.Show();
                 this.Hide();
             }
