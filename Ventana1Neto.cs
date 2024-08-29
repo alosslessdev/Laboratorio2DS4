@@ -26,33 +26,44 @@ namespace FranciscoHerrera_Lab1
             try
             {
                 decimal salarioBruto = decimal.Parse(txtSalarioBruto.Text);
-                salarioBruto = (salarioBruto * 13);
-                decimal calcularISR
-                calcularISR = salarioBruto;
-                if (calcularISR <= 11000) {
+                decimal salarioBrutoAnual;
+                salarioBrutoAnual = (salarioBruto * 13);
+
+                decimal calcularISR;
+                calcularISR = salarioBrutoAnual;
+
+
+
+                if (calcularISR <= Convert.ToDecimal(11000))
+                {
                     calcularISR = calcularISR;
-                } else if (calcularISR > 11000 && < 50000) {  
-                    calcularISR = (((calcularISR - 11000) * 0.15)/13);
-                } else {
-                    salarioBruto = ((calcularISR - 50000) * 0.25);
-                    salarioBruto = ((calcularISR + 5850) / 13);
+
+                }
+                else if (calcularISR > Convert.ToDecimal(11000) && calcularISR < Convert.ToDecimal(50000))
+                {
+                    calcularISR = (((calcularISR - Convert.ToDecimal(11000)) * Convert.ToDecimal(0.15)) / 13);
+                }
+                else
+                {
+                    calcularISR = ((calcularISR - Convert.ToDecimal(50000)) * Convert.ToDecimal(0.25));
+                    calcularISR = ((calcularISR + Convert.ToDecimal(5850)) / 13);
 
                 }
 
-                
+                calcularISR = decimal.Round(calcularISR, 2);
 
                 decimal pagoSeguroSocial = decimal.Round((salarioBruto * Convert.ToDecimal(0.0975)), 2);
 
                 decimal pagoSeguroEducativo = decimal.Round((salarioBruto * Convert.ToDecimal(0.0125)), 2);
 
-                decimal salarioNeto = decimal.Round((salarioBruto - pagoSeguroSocial - pagoSeguroEducativo), 2);
+                decimal salarioNeto = decimal.Round((salarioBruto - pagoSeguroSocial - pagoSeguroEducativo - calcularISR), 2);
 
-                VentanaNeto ventana2Resultado = new VentanaNeto(txtNombreEmpleado.Text, txtCedula.Text, salarioNeto, pagoSeguroSocial, pagoSeguroEducativo);
+                VentanaNeto ventana2Resultado = new VentanaNeto(salarioNeto, pagoSeguroSocial, pagoSeguroEducativo, calcularISR.ToString());
                 ventana2Resultado.Show();
                 this.Hide();
             }
             catch {
-                VentanaNeto ventana2Resultado = new VentanaNeto("Vacio", "Vacio", 0.0m, 0.0m, 0.0m);
+                VentanaNeto ventana2Resultado = new VentanaNeto(0.0m, 0.0m, 0.0m, "No paga ISR");
                 ventana2Resultado.Show();
                 this.Hide();
             }
