@@ -15,41 +15,31 @@ namespace FranciscoHerrera_Lab1
 {
     public partial class VentanaNeto : Form
     {
-        private string nombreLocal;
-        private string cedulaLocal;
         private decimal valorSalarioNetoLocal;
         private decimal valorSeguroSocialLocal;
         private decimal valorSeguroEducativoLocal;
-        public VentanaNeto(string entradaNombre, string entradaCedula, decimal entradaSalarioNeto, 
-            decimal entradaSeguroSocial, decimal entradaSeguroEducativo)
+        private decimal valorISRLocal;
+
+        public VentanaNeto(decimal entradaSalarioNeto, 
+            decimal entradaSeguroSocial, decimal entradaSeguroEducativo, decimal entradaISR)
         {
             InitializeComponent();
-             nombreLocal = entradaNombre;
-             cedulaLocal = entradaCedula;
              valorSalarioNetoLocal = entradaSalarioNeto;
              valorSeguroSocialLocal = entradaSeguroSocial;
              valorSeguroEducativoLocal = entradaSeguroEducativo;
+            valorISRLocal = entradaISR;
+
         }
 
 
 
         private void Ventana2Resultado_Load(object sender, EventArgs e)
         {
-            etiquetaCambiaNombreEmpleado.Text = nombreLocal;
-            if (nombreLocal == "") 
-            {
-                etiquetaCambiaNombreEmpleado.Text = "Prueba Prueba";
-
-            }
-            etiquetaCambiaCedula.Text = cedulaLocal;
-            if (cedulaLocal == "")
-            {
-                etiquetaCambiaCedula.Text = "0-0000-0000";
-            }
-
             etiquetaCambiaSalarioNeto.Text = valorSalarioNetoLocal.ToString();
             etiquetaCambiaSeguroEducativo.Text = valorSeguroSocialLocal.ToString();
             etiquetaCambiaSeguroSocial.Text = valorSeguroEducativoLocal.ToString();
+            etiquetaCambiaISR.Text = valorISRLocal.ToString();
+            
         }
 
 
