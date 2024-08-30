@@ -27,7 +27,7 @@ namespace Grupal_Lab2
             {
                 decimal salarioBruto = decimal.Parse(txtSalarioBruto.Text);
                 decimal salarioBrutoAnual;
-                salarioBrutoAnual = (salarioBruto * 13);
+                salarioBrutoAnual = (salarioBruto * 13); //dividor por numero de meses en un año incluyendo decimo tercer mes
 
                 decimal calcularISR;
                 calcularISR = salarioBrutoAnual;
