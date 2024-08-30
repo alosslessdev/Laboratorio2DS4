@@ -1,4 +1,4 @@
-name: sync-fork
+aname: sync-fork
 on:
   schedule:
     - cron: '* * * * *'
@@ -9,7 +9,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - run: gh repo sync $REPOSITORY -b $BRANCH_NAME
+      - run: gh repo sync alosslessdev/Laboratorio2DS4 -b main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
