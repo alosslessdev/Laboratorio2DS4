@@ -25,28 +25,31 @@ namespace Grupal_Lab2
         {
             try
             {
+                decimal salarioBrutoAnual, calcularISR;
+                string resultadoISR;
                 decimal salarioBruto = decimal.Parse(txtSalarioBruto.Text);
-                decimal salarioBrutoAnual;
                 salarioBrutoAnual = (salarioBruto * 13); //dividor por numero de meses en un año incluyendo decimo tercer mes
 
-                decimal calcularISR;
-                calcularISR = salarioBrutoAnual; //pasar para calcular ISR
 
+                calcularISR = salarioBrutoAnual; //pasar para calcular ISR
 
 
                 if (calcularISR <= Convert.ToDecimal(11000))
                 {
-                    calcularISR = calcularISR;
+                    calcularISR = 0;
+                    resultadoISR = "No paga impuesto sobre la renta";
 
                 }
                 else if (calcularISR > Convert.ToDecimal(11000) && calcularISR < Convert.ToDecimal(50000))
                 {
                     calcularISR = (((calcularISR - Convert.ToDecimal(11000)) * Convert.ToDecimal(0.15)) / 13);
+                    resultadoISR = calcularISR.ToString();
                 }
                 else //despues de 50,000 dolares
                 {
                     calcularISR = ((calcularISR - Convert.ToDecimal(50000)) * Convert.ToDecimal(0.25));
                     calcularISR = ((calcularISR + Convert.ToDecimal(5850)) / 13);
+                    resultadoISR = calcularISR.ToString();
 
                 }
 
@@ -60,7 +63,7 @@ namespace Grupal_Lab2
 
                 //crear objeto con segunda ventana y mostrarla, usando nuestros datos como argumentos
 
-                VentanaNeto ventana2Resultado = new VentanaNeto(salarioNeto, pagoSeguroSocial, pagoSeguroEducativo, calcularISR.ToString());
+                VentanaNeto ventana2Resultado = new VentanaNeto(salarioNeto, pagoSeguroSocial, pagoSeguroEducativo, resultadoISR);
                 ventana2Resultado.Show();
                 this.Hide();
             }
