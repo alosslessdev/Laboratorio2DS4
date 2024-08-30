@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Francisco Herrera 8-1005-1990
-
+//Francisco Herrera 8-1005-1990 
+//Nathan Carrasco 8-1010-606 
+//Roberto Mojica 3-755-2291 
 
 namespace Grupal_Lab2
 {
