@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FranciscoHerrera_Lab1.Properties
+namespace Grupal_Lab2.Properties
 {
 
 

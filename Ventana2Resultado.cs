@@ -11,7 +11,7 @@ using System.Windows.Forms;
 //Francisco Herrera 8-1005-1990
 
 
-namespace FranciscoHerrera_Lab1
+namespace Grupal_Lab2
 {
     public partial class VentanaNeto : Form
     {

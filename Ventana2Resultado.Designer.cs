@@ -1,6 +1,6 @@
 ﻿//Francisco Herrera 8-1005-1990
 
-namespace FranciscoHerrera_Lab1
+namespace Grupal_Lab2
 {
     partial class VentanaNeto
     {
