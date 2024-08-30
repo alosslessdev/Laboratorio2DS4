@@ -40,22 +40,26 @@ namespace Grupal_Lab2
                 if (calcularISR <= Convert.ToDecimal(11000))
                 {
                     calcularISR = 0;
-                    resultadoISR = "No paga impuesto sobre la renta";
                 }
                 else if (calcularISR > Convert.ToDecimal(11000) && calcularISR < Convert.ToDecimal(50000))
                 {
                     calcularISR = (((calcularISR - Convert.ToDecimal(11000)) * Convert.ToDecimal(0.15)) / 13);
-                    calcularISR = decimal.Round(calcularISR, 2);
-                    resultadoISR = calcularISR.ToString();
                 }
                 else //despues de 50,000 dolares
                 {
                     calcularISR = ((calcularISR - Convert.ToDecimal(50000)) * Convert.ToDecimal(0.25));
                     calcularISR = ((calcularISR + Convert.ToDecimal(5850)) / 13);
-                    calcularISR = decimal.Round(calcularISR, 2);
-                    resultadoISR = calcularISR.ToString();
 
                 }
+                calcularISR = decimal.Round(calcularISR, 2);
+                if (calcularISR == 0)
+                {
+                    resultadoISR = "No paga impuesto sobre la renta";
+                }
+                else {
+                    resultadoISR = calcularISR.ToString();
+                }
+
                 decimal salarioNeto = ((salarioBruto - pagoSeguroSocial - pagoSeguroEducativo) - calcularISR);
 
                 //crear objeto con segunda ventana y mostrarla, usando nuestros datos como argumentos
