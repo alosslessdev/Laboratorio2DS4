@@ -79,7 +79,7 @@ namespace Grupal_Lab2
         }
 
         //validacion
-
+        // crear funcion
         private void EliminarTexto(TextBox cajaTxt, String patron) {
             if (System.Text.RegularExpressions.Regex.IsMatch(cajaTxt.Text, patron))
             {
