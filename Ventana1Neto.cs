@@ -30,7 +30,7 @@ namespace Grupal_Lab2
                 salarioBrutoAnual = (salarioBruto * 13); //dividor por numero de meses en un año incluyendo decimo tercer mes
 
                 decimal calcularISR;
-                calcularISR = salarioBrutoAnual;
+                calcularISR = salarioBrutoAnual; //pasar para calcular ISR
 
 
 
@@ -43,7 +43,7 @@ namespace Grupal_Lab2
                 {
                     calcularISR = (((calcularISR - Convert.ToDecimal(11000)) * Convert.ToDecimal(0.15)) / 13);
                 }
-                else
+                else //despues de 50,000 dolares
                 {
                     calcularISR = ((calcularISR - Convert.ToDecimal(50000)) * Convert.ToDecimal(0.25));
                     calcularISR = ((calcularISR + Convert.ToDecimal(5850)) / 13);
@@ -58,11 +58,13 @@ namespace Grupal_Lab2
 
                 decimal salarioNeto = decimal.Round((salarioBruto - pagoSeguroSocial - pagoSeguroEducativo - calcularISR), 2);
 
+                //crear objeto con segunda ventana y mostrarla, usando nuestros datos como argumentos
+
                 VentanaNeto ventana2Resultado = new VentanaNeto(salarioNeto, pagoSeguroSocial, pagoSeguroEducativo, calcularISR.ToString());
                 ventana2Resultado.Show();
                 this.Hide();
             }
-            catch {
+            catch { // si algo falla
                 VentanaNeto ventana2Resultado = new VentanaNeto(0.0m, 0.0m, 0.0m, "No paga ISR");
                 ventana2Resultado.Show();
                 this.Hide();
